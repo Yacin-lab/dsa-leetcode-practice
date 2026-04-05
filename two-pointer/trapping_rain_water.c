@@ -12,8 +12,10 @@ int trap(int* height, int heightSize) {
     while(left < right) {
 
         if (height[left] < height[right]) {
-            // ila l9it wall >= maxWall li l9it 9bal
+
+            // ila l9it corrent wall >= maxWall li l9it 9bal
             // ya3ni water = 0 (7it a3la 9imma 3la lyasar <= l9imma l7alya)
+            // ya3ni khzan maxWall w doz
             if(height[left] >= maxLeft)
                 maxLeft = height[left];
             // ila l9it wall > maxWall li 9bal

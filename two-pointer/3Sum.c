@@ -40,8 +40,10 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
         return (NULL);
     // *returnColumnSize == arr (in main)
     *returnColumnSizes = malloc(capacity * sizeof(int));
-    if (!*returnColumnSizes)
+    if (!*returnColumnSizes) {
+        free(result);
         return (NULL);
+    }
 
     // sort array first (required for two pointers)
     selection_sort(nums, numsSize);
@@ -50,7 +52,7 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
     
     int i = 0;
     while(i < numsSize - 2) {
-        // skip Repeated numbers at the beginning
+        // skip Repeated numbers at the beginning  (i > 0 for first loop) 
         while(i > 0 && i < numsSize - 2 && nums[i] == nums[i - 1]) {
             i++;
         }
@@ -71,6 +73,12 @@ int** threeSum(int* nums, int numsSize, int* returnSize, int** returnColumnSizes
                 }
                 // allocate memory for one triplet
                 result[*returnSize] = malloc(3 * sizeof(int));
+                if (!result[*returnSize]) {
+                    while(*returnSize > 0)  free(result[(*returnSize)--]);
+                    free(result);
+                    free(returnColumnSizes);
+                    return (NULL);
+                }
 
                 result[*returnSize][0] = nums[i];
                 result[*returnSize][1] = nums[left];
@@ -107,7 +115,7 @@ int main(void) {
     int arr[] = {-1,0,1,2,-1,-4};
     int size = sizeof(arr) / sizeof(arr[0]);
     int returnSize;
-    int *returnColumnSizes;
+    int *returnColumnSizes = NULL;
 
     int **res = threeSum(arr, size, &returnSize, &returnColumnSizes);
     for(int i = 0; i < returnSize; i++) {
@@ -116,5 +124,8 @@ int main(void) {
         }
         printf("\n");
     }
+
+    free(returnColumnSizes);
+    free(res);
     return (0);
 }
