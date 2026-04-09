@@ -11,8 +11,8 @@
 
     1. Compute the maximum nbr of vowels in the first window
     2. Check leaving and entering element:
-        if entering == vowels increment +1
-        if leaving == vowels decrement -1
+        if entering == vowels -> increment +1
+        if leaving == vowels -> decrement -1
     3. Update maxCount
 */
 
@@ -35,16 +35,15 @@ int maximumNumberOfVowels(char* s, int k) {
 
     int maxCount = countVowels;
     
-    // slide window
+    // Fixed slide window
     right = k;
     while(s[right] != '\0') {
 
-        // jouj elements li kayhmoni --> li 3ad khrej w 3ad dkhl f window
-        // ila kan li khrej vowles n9as mn CountVowels -1
+        // jouj elements li kayhmoni --> li 3ad khrej w 3ad dkhl lwindow
+        // ila kan li khrej vowles -> n9as mn CountVowels -1
         left = right - k;
         if (checkVowels(s[left]))
             countVowels--;
-        
 
         // ila kan li dkhel vowles zid l CountVowels +1
         if (checkVowels(s[right]))

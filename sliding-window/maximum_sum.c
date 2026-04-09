@@ -6,7 +6,7 @@
     Returns the maximum sum of any contiguous subarray of size k.
 
     Idea:
-    Use Sliding Window technique.
+    Use Fixed Sliding Window technique.
 
     1. Compute the sum of the first window of size k.
     2. Slide the window one step each time.

@@ -7,7 +7,7 @@
     Returns an array containing the average of every
     contiguous subarray of size k.
 
-    Sliding Window idea:
+    Fixed Sliding Window idea:
     1. Compute the sum of the first window.
     2. Store its average.
     3. Slide the window:
@@ -31,8 +31,8 @@ float* avreageSubarrays(int* nums, int numsSize, int k) {
 	for(int i = 0; i < k; i++) {
 		sum += nums[i];
 	}
-
 	result[index++] = sum / k;
+
 	// slide window
 	for(int right = k; right < numsSize; right++) {
 		
