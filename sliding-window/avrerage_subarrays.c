@@ -50,11 +50,12 @@ int main(void) {
 	int k = 5;
 	int resultSize = size - k + 1;
 
-	float* average = avreageSubarrays(arr, size, k);
+	float* averages = avreageSubarrays(arr, size, k);
+	
 	for(int i = 0; i < resultSize; i++) {
-		printf("%.1f,  ", average[i]);
+		printf("%.1f,  ", averages[i]);
 	}
 	
-	free(average);
+	free(averages);
 	return (0);
 }

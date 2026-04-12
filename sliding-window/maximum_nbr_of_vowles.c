@@ -16,7 +16,7 @@
     3. Update maxCount
 */
 
-int checkVowels(char c) {
+int isVowels(char c) {
     return (c == 'a' || c == 'u' || 
             c == 'o' || c == 'e' || 
             c == 'i');
@@ -29,7 +29,7 @@ int maximumNumberOfVowels(char* s, int k) {
 
     // first window
     for(int i = 0; i < k; i++) {
-        if(checkVowels(s[i]))
+        if(isVowels(s[i]))
             countVowels++;
     }
 
@@ -40,13 +40,13 @@ int maximumNumberOfVowels(char* s, int k) {
     while(s[right] != '\0') {
 
         // jouj elements li kayhmoni --> li 3ad khrej w 3ad dkhl lwindow
-        // ila kan li khrej vowles -> n9as mn CountVowels -1
+        // ila kan li khrej vowles --> n9as mn CountVowels -1
         left = right - k;
-        if (checkVowels(s[left]))
+        if (isVowels(s[left]))
             countVowels--;
 
         // ila kan li dkhel vowles zid l CountVowels +1
-        if (checkVowels(s[right]))
+        if (isVowels(s[right]))
             countVowels++;
 
         // update maxCount

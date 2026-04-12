@@ -57,7 +57,7 @@ int longestSubstringNoRepeat(char* str) {
         while (seen[(unsigned char)str[right]] == 1) {
             /*
                 Remove the leftmost character
-                from the window.
+                from the window (hash table).
 
                 Example:
                     window = "abca"
@@ -70,7 +70,7 @@ int longestSubstringNoRepeat(char* str) {
         
         /*
             Now the character is safe to add to the window.
-            Mark current char as seen
+            Mark current char as seen.
             Convert the letter to an index in hash table
         */
         seen[(unsigned char)str[right]] = 1;
