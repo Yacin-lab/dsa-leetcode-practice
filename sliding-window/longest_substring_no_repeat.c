@@ -33,6 +33,8 @@ int longestSubstringNoRepeat(char* str) {
         Value  = how many times this char appears in window
 
         We initialize with 0 so we don't read garbage memory.
+        256 7it range dyal unsigned char 0 -> 255 y3ni 256 possible char values
+        w bach nghati 7ta Extended ASCII
     */
     int seen[256] = {0};
 
@@ -57,7 +59,7 @@ int longestSubstringNoRepeat(char* str) {
         while (seen[(unsigned char)str[right]] == 1) {
             /*
                 Remove the leftmost character
-                from the window (hash table).
+                from the window.
 
                 Example:
                     window = "abca"
