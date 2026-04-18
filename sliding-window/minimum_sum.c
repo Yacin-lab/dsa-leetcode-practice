@@ -64,7 +64,7 @@ int minimumSizeSubarraySum(int* arr, int numSize, int target) {
         right++;        // Move right pointer to expand window
 	}
     
-    // If none exists return 0 bucase minLen = INT_MAX
+    // If none exists return 0 because minLen = INT_MAX
     if (minLen == INT_MAX) {
         return (0);
     }

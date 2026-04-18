@@ -34,9 +34,9 @@ int longestSubstringNoRepeat(char* str) {
 
         We initialize with 0 so we don't read garbage memory.
         256 7it range dyal unsigned char 0 -> 255 y3ni 256 possible char values
-        w bach nghati 7ta Extended ASCII
+        w bach nghati 7ta "Extended ASCII"
     */
-    int seen[256] = {0};
+    int dejaVu[256] = {0};
 
     int left = 0;
     int right = 0;
@@ -56,7 +56,7 @@ int longestSubstringNoRepeat(char* str) {
             We must shrink the window from the left
             until the duplicate 'a' disappears.
         */
-        while (seen[(unsigned char)str[right]] == 1) {
+        while (dejaVu[(unsigned char)str[right]] == 1) {
             /*
                 Remove the leftmost character
                 from the window.
@@ -66,16 +66,16 @@ int longestSubstringNoRepeat(char* str) {
                     remove 'a'
                     move left forward
             */
-            seen[(unsigned char)str[left]]--;
+            dejaVu[(unsigned char)str[left]]--;
             left++;
         }
         
         /*
             Now the character is safe to add to the window.
-            Mark current char as seen.
+            Mark current char as dejaVu.
             Convert the letter to an index in hash table
         */
-        seen[(unsigned char)str[right]] = 1;
+        dejaVu[(unsigned char)str[right]] = 1;
 
         /*
             update max length
@@ -93,7 +93,7 @@ int longestSubstringNoRepeat(char* str) {
             char c = 200; --> -56
             
             wla khdmt biha hka
-            seen[c] == seen[-56] --> Undefined Behavior
+            dejaVu[c] == dejaVu[-56] --> Undefined Behavior
         */
 	}
 	return (maxSize);
