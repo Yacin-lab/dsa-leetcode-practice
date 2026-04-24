@@ -21,6 +21,7 @@ void print_frequency(char *s)
             if (freq[i] > maxCount)
             {
                 maxCount = freq[i];
+                /* index of table is the same as the character value */
                 maxChar = i;
             }
             i++;
